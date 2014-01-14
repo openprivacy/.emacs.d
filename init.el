@@ -76,11 +76,12 @@
       calendar-longitude [80 2 west]
       calendar-location-name "115 Roycroft, Mt. Lebanon")
 
-;; Set window title
-(if (boundp 'x-display-name)
-    (setq frame-title-format
-          '((buffer-file-name "%f" (dired-directory dired-directory "%b")) " - "
-            invocation-name "@" system-name)))
+;; Set initial frame size and window title
+(when window-system
+  (set-frame-size (selected-frame) 90 46)
+  (setq frame-title-format
+        '((buffer-file-name "%f" (dired-directory dired-directory "%b")) " - "
+          invocation-name "@" system-name)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
