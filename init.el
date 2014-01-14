@@ -24,7 +24,6 @@
 (require 'fen)                          ; handy editor functions
 
 ;; Drupal support
-(autoload 'geben "geben" "PHP Debugger on Emacs" t)
 (autoload 'drupal-mode "drupal-mode" "Major mode for Drupal." t)
 
 (add-to-list 'auto-mode-alist '("\\.\\(module\\|test\\|install\\|theme\\|php\\|inc\\)$" . drupal-mode))
