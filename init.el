@@ -32,6 +32,9 @@
 
 (add-hook 'drupal-mode-hook
           '(lambda nil
+             ; "Drupal" coding standards obtained from most recent coder module:
+             ; sudo cp -al /path/to/coder/coder_sniffer/Drupal \
+             ;             $(pear config-get php_dir)/PHP/CodeSniffer/Standards
              (setq-local flymake-phpcs-standard "Drupal")
              (local-set-key '[M-S-right] '(lambda nil (interactive) (flymake-phpcs-load)))
              (local-set-key '[M-S-up] 'flymake-goto-prev-error)
