@@ -26,7 +26,8 @@
 ;; Drupal support
 (autoload 'drupal-mode "drupal-mode" "Major mode for Drupal." t)
 
-(add-to-list 'auto-mode-alist '("\\.\\(module\\|test\\|install\\|theme\\|php\\|inc\\)$" . drupal-mode))
+(add-to-list 'auto-mode-alist
+             '("\\.\\(module\\|test\\|install\\|theme\\|php\\|inc\\)$" . drupal-mode))
 (add-to-list 'auto-mode-alist '("\\.info" . conf-windows-mode))
 
 (add-hook 'drupal-mode-hook
@@ -34,17 +35,17 @@
              ; "Drupal" coding standards obtained from most recent coder module:
              ; sudo cp -a /path/to/coder/coder_sniffer/Drupal \
              ;            $(pear config-get php_dir)/PHP/CodeSniffer/Standards
-             (setq-local f(setq-default indent-tabs-mode nil
-              sh-basic-offset 2
-              sh-indentation 2
-              require-final-newline t
-              backup-by-copying-when-linked t)
-lymake-phpcs-standard "Drupal")
-             (local-set-key '[M-S-right] '(lambda nil (interactive) (flymake-phpcs-load)))
+             (setq-local flymake-phpcs-standard "Drupal")
+             (local-set-key '[M-S-right]
+                            '(lambda nil (interactive)
+                               (flymake-phpcs-load)
+                               (custom-set-variables         ;Put error in mini-buffer
+                                '(help-at-pt-timer-delay 0.9)
+                                '(help-at-pt-display-when-idle '(flymake-overlay)))))
              (local-set-key '[M-S-up]    'flymake-goto-prev-error)
              (local-set-key '[M-S-down]  'flymake-goto-next-error)
-             (local-set-key "\C-hf" 'drupal-browse-api)   ;was: describe-function
-             (local-set-key "\C-hp" 'php-symbol-lookup))) ;was: finder-by-keyword
+             (local-set-key "\C-c\C-p" 'php-search-documentation) ;also default "\C-c\C-f"
+             (local-set-key "\C-c\C-d" 'drupal-browse-api))) ;was: c-hungry-delete-forward
 
 ;; Clojure, Cider, Nrepl
 (load "clojure")
@@ -53,6 +54,7 @@ lymake-phpcs-standard "Drupal")
 (add-to-list 'auto-mode-alist '("\\.\\(xdi\\|xsd\\)$" . nxml-mode))
 
 ;; Tell emacs I know what I'm doing
+(tool-bar-mode 0)
 (put 'eval-expression  'disabled nil)    ; convenience for elisp hackers
 (put 'narrow-to-region 'disabled nil)
 (put 'narrow-to-page   'disabled nil)
@@ -60,7 +62,6 @@ lymake-phpcs-standard "Drupal")
 (put 'upcase-region    'disabled nil)
 
 ;; Set some variables
-(tool-bar-mode 0)
 (setq split-height-threshold 20
       scroll-step 2
       inhibit-startup-message t)

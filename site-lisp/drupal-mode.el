@@ -5,7 +5,7 @@
 (require 'etags)
 (require 'flymake)
 
-;; remove php-mode from the auto-mode-alist
+;; Remove php-mode from the auto-mode-alist
 (setq-default auto-mode-alist (rassq-delete-all 'php-mode auto-mode-alist))
 
 (defcustom drupal-api-version 7
@@ -18,6 +18,7 @@
         :type 'string
         :group 'drupal)
 
+;; Search Drupal API for function at point
 (defun drupal-browse-api ()
   "Browse Drupal API docs."
   :group 'drupal
@@ -25,15 +26,7 @@
   (browse-url
    (format "%s/%i/%s" drupal-api-url drupal-api-version (symbol-at-point))))
 
-(defun php-symbol-lookup ()
-  :group 'drupal
-  (interactive)
-  (let ((symbol (symbol-at-point)))
-    (if (not symbol)
-        (message "No symbol at point.")
-      (browse-url (concat "http://php.net/manual-lookup.php?pattern="
-                          (symbol-name symbol))))))
-
+;; Define drupal-mode (derived from php-mode)
 (define-derived-mode drupal-mode php-mode "Drupal"
   "Major mode for Drupal coding.\n\n\\{drupal-mode-map}"
   :group 'drupal
@@ -51,6 +44,7 @@
 (provide 'drupal-mode)
 
 ;; CiviCRM mode deprecated; now using Drupal coding standards
+
 ;; (define-derived-mode civicrm-mode php-mode "CiviCRM"
 ;;   "Major mode for CiviCRM coding.\n\n\\{civicrm-mode-map}"
 ;;   (setq c-basic-offset 4)
