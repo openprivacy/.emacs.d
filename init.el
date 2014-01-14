@@ -11,6 +11,10 @@
 ;; Set path to dependencies
 (setq site-lisp-dir (expand-file-name "site-lisp" dotfiles-dir))
 
+;; Save here instead of littering current directory with emacs backup files
+(setq backup-directory-alist `(("." . ,(expand-file-name
+                                        (concat dotfiles-dir "backups")))))
+
 ;; Set up load path
 (add-to-list 'load-path dotfiles-dir)
 (add-to-list 'load-path site-lisp-dir)
@@ -32,7 +36,8 @@
              (local-set-key '[M-S-right] '(lambda nil (interactive) (flymake-phpcs-load)))
              (local-set-key '[M-S-up] 'flymake-goto-prev-error)
              (local-set-key '[M-S-down] 'flymake-goto-next-error)
-             (local-set-key "\C-hf" 'drupal-browse-api)))
+             (local-set-key "\C-hf" 'drupal-browse-api)
+             (local-set-key "\C-hp" 'php-symbol-lookup)))
 
 ;; Clojure, Cider, Nrepl
 (load "clojure")
@@ -66,10 +71,6 @@
 (setq hippie-expand-try-functions-list (delete 'try-complete-file-name-partially hippie-expand-try-functions-list))
 
 (setq ido-use-filename-at-point nil)
-
-;; Save here instead of littering current directory with emacs backup files
-(setq backup-directory-alist `(("." . ,(expand-file-name
-                                        (concat dotfiles-dir "backups")))))
 
 ;; stuff for calendar
 (setq calendar-latitude [40 21 north]
