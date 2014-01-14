@@ -29,15 +29,10 @@
 (add-hook 'drupal-mode-hook
           '(lambda nil
              (setq-local flymake-phpcs-standard "Drupal")
-             (flymake-phpcs-load)
+             (local-set-key '[M-S-right] '(lambda nil (interactive) (flymake-phpcs-load)))
              (local-set-key '[M-S-up] 'flymake-goto-prev-error)
              (local-set-key '[M-S-down] 'flymake-goto-next-error)
              (local-set-key "\C-hf" 'drupal-browse-api)))
-
-;; FIXME: this is not removing php-mode from auto-mode-alist
-(eval-after-load 'php-mode
-  '(lambda nil
-     (setq-default auto-mode-alist (rassq-delete-all 'php-mode auto-mode-alist))))
 
 ;; Clojure, Cider, Nrepl
 (load "clojure")

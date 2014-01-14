@@ -1,8 +1,11 @@
 ;; from http://drupal.org/node/59868#comment-1386940
 ;; from http://drupal.org/node/59868 ; 2011-05-10 fen
 
+(require 'php-mode)
 (require 'etags)
 (require 'flymake)
+
+(setq-default auto-mode-alist (rassq-delete-all 'php-mode auto-mode-alist))
 
 (defcustom drupal-api-version 7
         "Drupal API version to search"
@@ -60,31 +63,3 @@
   (run-hooks 'drupal-mode-hook)
 )
 (provide 'civicrm-mode)
-
-;; (defconst my-php-style           ; correct arglist closing parenthesis
-;;   '((c-offsets-alist . ((arglist-close . c-lineup-close-paren))))
-;;   "My PHP Programming style"
-;; )
-;; (c-add-style "my-php-style" my-php-style)
-
-;; (defun my-php-mode ()
-;;   "My personal php-mode customizations"
-;;   (c-set-style "my-php-style")
-;;   ; More generic PHP customizations here
-;;   (setq show-paren-mode t)
-;; )
-
-;; (defun my-php ()
-;;   ; PHP
-;;   (add-hook 'php-mode-hook 'my-php-mode)
-
-;;   ; Drupal
-;; (add-to-list 'auto-mode-alist '("\\.\\(module\\|test\\|install\\|theme\\)$" . drupal-mode))
-;; (add-to-list 'auto-mode-alist '("\\.\\(php\\|inc\\)$" . php-mode)) ; set drupal-mode manually
-;; (add-to-list 'auto-mode-alist '("\\.info" . conf-windows-mode))
-
-;;   ; More startup-setup for PHP customizations to work here
-;; )
-
-;; (provide 'my-php)
-;; (provide 'my-php-mode)
