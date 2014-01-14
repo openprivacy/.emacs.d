@@ -32,14 +32,19 @@
 (add-hook 'drupal-mode-hook
           '(lambda nil
              ; "Drupal" coding standards obtained from most recent coder module:
-             ; sudo cp -al /path/to/coder/coder_sniffer/Drupal \
-             ;             $(pear config-get php_dir)/PHP/CodeSniffer/Standards
-             (setq-local flymake-phpcs-standard "Drupal")
+             ; sudo cp -a /path/to/coder/coder_sniffer/Drupal \
+             ;            $(pear config-get php_dir)/PHP/CodeSniffer/Standards
+             (setq-local f(setq-default indent-tabs-mode nil
+              sh-basic-offset 2
+              sh-indentation 2
+              require-final-newline t
+              backup-by-copying-when-linked t)
+lymake-phpcs-standard "Drupal")
              (local-set-key '[M-S-right] '(lambda nil (interactive) (flymake-phpcs-load)))
-             (local-set-key '[M-S-up] 'flymake-goto-prev-error)
-             (local-set-key '[M-S-down] 'flymake-goto-next-error)
-             (local-set-key "\C-hf" 'drupal-browse-api)
-             (local-set-key "\C-hp" 'php-symbol-lookup)))
+             (local-set-key '[M-S-up]    'flymake-goto-prev-error)
+             (local-set-key '[M-S-down]  'flymake-goto-next-error)
+             (local-set-key "\C-hf" 'drupal-browse-api)   ;was: describe-function
+             (local-set-key "\C-hp" 'php-symbol-lookup))) ;was: finder-by-keyword
 
 ;; Clojure, Cider, Nrepl
 (load "clojure")
@@ -47,38 +52,30 @@
 ;; NXML-mode for xdi and xsd files
 (add-to-list 'auto-mode-alist '("\\.\\(xdi\\|xsd\\)$" . nxml-mode))
 
-;; tell emacs I know what I'm doing
+;; Tell emacs I know what I'm doing
 (put 'eval-expression  'disabled nil)    ; convenience for elisp hackers
 (put 'narrow-to-region 'disabled nil)
 (put 'narrow-to-page   'disabled nil)
 (put 'downcase-region  'disabled nil)
 (put 'upcase-region    'disabled nil)
 
-;; set some variables
-(setq-default indent-tabs-mode nil)
-(setq-default sh-basic-offset 2)
-(setq-default sh-indentation 2)
+;; Set some variables
 (tool-bar-mode 0)
-(setq require-final-newline t
-      backup-by-copying-when-linked t
-      split-height-threshold 20
+(setq split-height-threshold 20
       scroll-step 2
       inhibit-startup-message t)
+(setq-default indent-tabs-mode nil
+              sh-basic-offset 2
+              sh-indentation 2
+              require-final-newline t
+              backup-by-copying-when-linked t)
 
-;; Flyspell often slows down editing so it's turned off
-(remove-hook 'text-mode-hook 'turn-on-flyspell)
-
-;; hippie expand - don't try to complete with file names
-(setq hippie-expand-try-functions-list (delete 'try-complete-file-name hippie-expand-try-functions-list))
-(setq hippie-expand-try-functions-list (delete 'try-complete-file-name-partially hippie-expand-try-functions-list))
-
-(setq ido-use-filename-at-point nil)
-
-;; stuff for calendar
+;; Set my location for accurate Solstice/Equinox times
 (setq calendar-latitude [40 21 north]
       calendar-longitude [80 2 west]
       calendar-location-name "115 Roycroft, Mt. Lebanon")
 
+;; Set window title
 (if (boundp 'x-display-name)
     (setq frame-title-format
           '((buffer-file-name "%f" (dired-directory dired-directory "%b")) " - "
