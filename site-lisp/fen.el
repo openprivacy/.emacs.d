@@ -18,6 +18,19 @@
 	(split-window)
       (split-window nil (max 6 (/ size 7))))))
 
+;; Transpose this window with the next one
+(defun transpose-windows (arg)
+   "Transpose the buffers shown in two windows."
+   (interactive "p")
+   (let ((selector (if (>= arg 0) 'next-window 'previous-window)))
+     (while (/= arg 0)
+       (let ((this-win (window-buffer))
+             (next-win (window-buffer (funcall selector))))
+         (set-window-buffer (selected-window) next-win)
+         (set-window-buffer (funcall selector) this-win)
+         (select-window (funcall selector)))
+       (setq arg (if (plusp arg) (1- arg) (1+ arg))))))
+
 ;; insert a time stamp and name
 (defun stamp ()		; fen 11/12/85 - 2011-05-10 fen
   "Insert at dot a short form of the date and user login useful for comments."
@@ -31,6 +44,7 @@
     (progn
       ;; key bindings for my functions above
       (global-set-key "\C-x8" 'split-window-small)
+      (define-key ctl-x-4-map (kbd "t") 'transpose-windows)
       (global-set-key (kbd "M-s M-t") 'stamp)
 
       ;; other non-standard key bindings
