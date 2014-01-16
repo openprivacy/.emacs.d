@@ -1,5 +1,4 @@
-;; clojure
-(add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
+(require 'cider)
 
 ;; cider
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
@@ -20,6 +19,7 @@
 ; Limit the number of items of each collection the printer will print to 100:
 (setq cider-repl-print-length 100) ; the default is nil, no limit
 
+;; minor modes
 ; Enable CamelCase support
 (add-hook 'cider-repl-mode-hook 'subword-mode)
 ; The use of paredit when editing Clojure (or any other Lisp) code is highly recommended
@@ -27,3 +27,14 @@
 ; RainbowDelimiters is a minor mode which highlights parentheses, brackets,
 ; and braces according to their depth.
 (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
+
+;; unused (for now)
+; Prevent the auto-display of the REPL buffer in a separate window
+; after connection is established:
+; (setq cider-repl-pop-to-buffer-on-connect nil)
+; Make C-c C-z switch to the CIDER REPL buffer in the current window:
+; (setq cider-repl-display-in-current-window t)
+; Change the result prefix for REPL evaluation (by default there's no prefix):
+; (set cider-repl-result-prefix ";; => ")
+
+(provide 'my-clojure)

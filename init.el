@@ -47,8 +47,13 @@
              (local-set-key "\C-c\C-p" 'php-search-documentation) ;also default "\C-c\C-f"
              (local-set-key "\C-c\C-d" 'drupal-browse-api))) ;was: c-hungry-delete-forward
 
-;; Clojure, Cider, Nrepl
-(load "clojure")
+;; Clojure
+(add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
+
+(add-hook 'clojure-mode-hook
+          '(lambda nil
+             (require 'my-clojure)
+             (message "Use 'M-x cider-jack-in' to start nREPL")))
 
 ;; NXML-mode for xdi and xsd files
 (add-to-list 'auto-mode-alist '("\\.\\(xdi\\|xsd\\)$" . nxml-mode))
