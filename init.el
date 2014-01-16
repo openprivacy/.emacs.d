@@ -48,8 +48,6 @@
              (local-set-key "\C-c\C-d" 'drupal-browse-api))) ;was: c-hungry-delete-forward
 
 ;; Clojure
-(add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
-
 (add-hook 'clojure-mode-hook
           '(lambda nil
              (require 'my-clojure)
