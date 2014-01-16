@@ -10,6 +10,6 @@ Note that you'll likely want to fork this so that you can manage your own packag
 
 ### Notable features
 * `drupal-mode` supports `flymake-phpcs` for on-the-fly `PHP_CodeSniffer` editing
-** In s `drupal-mode` buffer, hit Shift-Meta-RightArrow to start `flymake-phpcs`
-** Use Shift-Meta-DownArrow to go to next flymake error
+ * In s `drupal-mode` buffer, hit Shift-Meta-RightArrow to start `flymake-phpcs`
+ * Use Shift-Meta-DownArrow to go to next flymake error
 * `clojure-mode` is built on `nREPL` and `Cider`
