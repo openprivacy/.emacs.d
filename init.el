@@ -20,8 +20,7 @@
 (add-to-list 'load-path site-lisp-dir)
 
 ;; My personal keybindings
-(defvar bind-fens-keys t)               ; to get some extra key bindings
-(require 'fen)                          ; handy editor functions
+(require 'my-keys)                      ; handy editor functions
 
 ;; Drupal support
 (autoload 'drupal-mode "drupal-mode" "Major mode for Drupal." t)
