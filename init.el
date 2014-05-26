@@ -83,7 +83,8 @@
   (set-frame-size (selected-frame) 90 46)
   (setq frame-title-format
         '((buffer-file-name "%f" (dired-directory dired-directory "%b")) " - "
-          invocation-name "@" system-name)))
+          invocation-name "@" system-name))
+  (customize-set-variable custom-enabled-themes (quote (tsdh-dark))))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -93,7 +94,7 @@
  '(ansi-color-names-vector ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#ad7fa8" "#8cc4ff" "#eeeeec"])
  '(blink-cursor-mode nil)
  '(comment-column 48)
- '(custom-enabled-themes (quote (tsdh-dark)))
+ ;'(custom-enabled-themes (quote (tsdh-dark)))
  '(custom-safe-themes (quote ("8bb1e9a22e9e9d405ca9bdf20b91301eba12c0b9778413ba7600e48d2d3ad1fb" default)))
  '(fci-rule-color "#383838")
  '(show-paren-mode t)
