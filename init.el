@@ -22,29 +22,24 @@
 ;; My personal keybindings
 (require 'my-keys)                      ; handy editor functions
 
-;; Drupal support
-(autoload 'drupal-mode "drupal-mode" "Major mode for Drupal." t)
-
-(add-to-list 'auto-mode-alist
-             '("\\.\\(module\\|test\\|install\\|theme\\|php\\|inc\\)$" . drupal-mode))
-(add-to-list 'auto-mode-alist '("\\.info" . conf-windows-mode))
-
+;; Additional Drupal/flymake support
 (add-hook 'drupal-mode-hook
           '(lambda nil
              ; "Drupal" coding standards obtained from most recent coder module:
              ; sudo cp -a /path/to/coder/coder_sniffer/Drupal \
              ;            $(pear config-get php_dir)/PHP/CodeSniffer/Standards
-             (setq-local flymake-phpcs-standard "Drupal")
-             (local-set-key '[M-S-right]
-                            '(lambda nil (interactive)
-                               (flymake-phpcs-load)
-                               (custom-set-variables         ;Put error in mini-buffer
-                                '(help-at-pt-timer-delay 0.9)
-                                '(help-at-pt-display-when-idle '(flymake-overlay)))))
-             (local-set-key '[M-S-up]    'flymake-goto-prev-error)
-             (local-set-key '[M-S-down]  'flymake-goto-next-error)
-             (local-set-key "\C-c\C-p" 'php-search-documentation) ;also default "\C-c\C-f"
-             (local-set-key "\C-c\C-d" 'drupal-browse-api))) ;was: c-hungry-delete-forward
+             ; (setq-local flymake-phpcs-standard "Drupal")
+             (define-key drupal-mode-map (kbd "C-c C-v <right>")
+               '(lambda nil (interactive)
+                  (flymake-phpcs-load)
+                  (custom-set-variables         ;Put error in mini-buffer
+                   '(help-at-pt-timer-delay 0.9)
+                   '(help-at-pt-display-when-idle '(flymake-overlay)))))
+             (define-key drupal-mode-map (kbd "C-c C-v <left>") 'flymake-mode) ; turn off
+             (define-key drupal-mode-map (kbd "C-c C-v <up>")   'flymake-goto-prev-error)
+             (define-key drupal-mode-map (kbd "C-c C-v <down>") 'flymake-goto-next-error)
+             ; php-search-documentation is also default "\C-c\C-f"
+             (define-key drupal-mode-map (kbd "C-c C-v C-p")    'php-search-documentation)))
 
 ;; Clojure
 (add-hook 'clojure-mode-hook
