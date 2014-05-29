@@ -5,7 +5,7 @@
 
 ;;;### (autoloads (drupal-mode-bootstrap drupal-mode drupal-info-modes
 ;;;;;;  drupal-js-modes drupal-css-modes drupal-php-modes drupal-drush-program)
-;;;;;;  "drupal-mode" "drupal-mode.el" (21380 43742 655680 523000))
+;;;;;;  "drupal-mode" "drupal-mode.el" (21383 24002 567530 153000))
 ;;; Generated autoloads from drupal-mode.el
 
 (put 'drupal-search-url 'safe-local-variable 'string-or-null-p)
@@ -67,7 +67,7 @@ mode-hook.
 ;;;***
 
 ;;;### (autoloads (drush-make-mode) "drush-make-mode" "drush-make-mode.el"
-;;;;;;  (21380 43742 643680 523000))
+;;;;;;  (21383 24002 559530 153000))
 ;;; Generated autoloads from drush-make-mode.el
 
 (autoload 'drush-make-mode "drush-make-mode" "\
@@ -81,8 +81,8 @@ A major mode for editing drush make files.
 
 ;;;***
 
-;;;### (autoloads nil nil ("drupal-mode-pkg.el") (21380 43742 758044
-;;;;;;  952000))
+;;;### (autoloads nil nil ("drupal-mode-pkg.el") (21383 24002 661290
+;;;;;;  661000))
 
 ;;;***
 
