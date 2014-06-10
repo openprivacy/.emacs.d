@@ -22,6 +22,10 @@
 ;; My personal keybindings
 (require 'my-keys)                      ; handy editor functions
 
+;; speed up tramp remote file access
+(require 'tramp)
+(setq tramp-default-method "ssh")
+
 ;; Additional Drupal/flymake support
 (add-hook 'drupal-mode-hook
           '(lambda nil
