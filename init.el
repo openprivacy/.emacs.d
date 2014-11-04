@@ -10,13 +10,15 @@
 
 ;; Set path to dependencies
 (setq site-lisp-dir (expand-file-name "site-lisp" dotfiles-dir))
+(setenv "PATH" (concat (getenv "PATH") ":/home/fen/bin"))
+(setq exec-path (append exec-path '("/home/fen/bin")))
 
 ;; Save here instead of littering current directory with emacs backup files
 (setq backup-directory-alist `(("." . ,(expand-file-name
                                         (concat dotfiles-dir "backups")))))
 
 ;; Set up load path
-(add-to-list 'load-path dotfiles-dir)
+; (add-to-list 'load-path dotfiles-dir)
 (add-to-list 'load-path site-lisp-dir)
 
 ;; My personal keybindings
@@ -71,6 +73,7 @@
               sh-indentation 2
               require-final-newline t
               backup-by-copying-when-linked t)
+(setq yow-file "/home/fen/.emacs.d/yow_file_zippy_pinhead_quotes.txt.gz")
 
 ;; Set my location for accurate Solstice/Equinox times
 (setq calendar-latitude [40 21 north]
