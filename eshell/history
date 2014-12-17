@@ -1,0 +1,10 @@
+cd ..
+./scripts/build rsync
+./scripts/build rsync
+ls -l .snapshot.sql.gz 
+date
+htop
+./scripts/build rsync
+dig emass-dsca.csd.disa.mil
+tr emass-dsca.csd.disa.mil
+traceroute emass-dsca.csd.disa.mil
