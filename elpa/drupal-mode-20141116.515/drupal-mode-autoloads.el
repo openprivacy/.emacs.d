@@ -3,8 +3,8 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "drupal-mode" "drupal-mode.el" (21649 65488
-;;;;;;  724533 781000))
+;;;### (autoloads nil "drupal-mode" "drupal-mode.el" (21656 32077
+;;;;;;  745012 541000))
 ;;; Generated autoloads from drupal-mode.el
 
 (put 'drupal-search-url 'safe-local-variable 'string-or-null-p)
@@ -78,8 +78,8 @@ mode-hook.
 
 ;;;***
 
-;;;### (autoloads nil "drush-make-mode" "drush-make-mode.el" (21649
-;;;;;;  65488 711200 449000))
+;;;### (autoloads nil "drush-make-mode" "drush-make-mode.el" (21656
+;;;;;;  32077 735012 541000))
 ;;; Generated autoloads from drush-make-mode.el
 
 (autoload 'drush-make-mode "drush-make-mode" "\
@@ -93,8 +93,8 @@ A major mode for editing drush make files.
 
 ;;;***
 
-;;;### (autoloads nil nil ("drupal-mode-pkg.el") (21649 65488 738222
-;;;;;;  740000))
+;;;### (autoloads nil nil ("drupal-mode-pkg.el") (21656 32077 761082
+;;;;;;  734000))
 
 ;;;***
 

@@ -16,5 +16,4 @@ tramp
 
 # flymake-mode
 *_flymake.*
-
-
+eshell
