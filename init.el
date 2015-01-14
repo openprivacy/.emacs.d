@@ -28,6 +28,11 @@
 (require 'tramp)
 (setq tramp-default-method "ssh")
 
+;; stuff for drupal-mode
+(require 'auto-complete)
+(require 'auto-complete-config)
+(ac-config-default)
+
 ;; Additional Drupal/flymake support
 (add-hook 'drupal-mode-hook
           '(lambda nil
@@ -68,11 +73,11 @@
 (setq split-height-threshold 20
       scroll-step 2
       inhibit-startup-message t)
-(setq-default indent-tabs-mode nil
-              sh-basic-offset 2
-              sh-indentation 2
-              require-final-newline t
-              backup-by-copying-when-linked t)
+;; (setq-default indent-tabs-mode nil
+;;               sh-basic-offset 2
+;;               sh-indentation 2
+;;               require-final-newline t
+;;               backup-by-copying-when-linked t)
 (setq yow-file "/home/fen/.emacs.d/yow_file_zippy_pinhead_quotes.txt.gz")
 
 ;; Set my location for accurate Solstice/Equinox times
