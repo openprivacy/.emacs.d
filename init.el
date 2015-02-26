@@ -17,9 +17,10 @@
 (setq backup-directory-alist `(("." . ,(expand-file-name
                                         (concat dotfiles-dir "backups")))))
 
-;; Set up load path
-; (add-to-list 'load-path dotfiles-dir)
+;; Set up load path and printer
 (add-to-list 'load-path site-lisp-dir)
+(setq lpr-command "gtklp")
+(setq ps-lpr-command "gtklp")
 
 ;; My personal keybindings
 (require 'my-keys)                      ; handy editor functions
@@ -32,6 +33,12 @@
 (require 'auto-complete)
 (require 'auto-complete-config)
 (ac-config-default)
+
+(require 'ggtags)
+;; @see https://github.com/arnested/drupal-mode/issues/48
+(setq drupal-get-function-args t)
+
+(add-to-list 'auto-mode-alist '("\\.\\(js\\|json\\)$" . js2-mode))
 
 ;; Additional Drupal/flymake support
 (add-hook 'drupal-mode-hook
