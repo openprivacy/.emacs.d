@@ -40,6 +40,12 @@
 
 (add-to-list 'auto-mode-alist '("\\.\\(js\\|json\\)$" . js2-mode))
 
+;; Use ggtags mode in code edit buffers
+(add-hook 'c-mode-common-hook
+	  (lambda ()
+	    (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+	      (ggtags-mode 1))))
+
 ;; Additional Drupal/flymake support
 (add-hook 'drupal-mode-hook
           '(lambda nil
