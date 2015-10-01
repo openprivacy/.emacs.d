@@ -86,6 +86,7 @@
 (setq split-height-threshold 20
       scroll-step 2
       inhibit-startup-message t)
+(setq-default require-final-newline t)
 ;; (setq-default indent-tabs-mode nil
 ;;               sh-basic-offset 2
 ;;               sh-indentation 2
