@@ -113,15 +113,42 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#ad7fa8" "#8cc4ff" "#eeeeec"])
+ '(ansi-color-names-vector
+   ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#ad7fa8" "#8cc4ff" "#eeeeec"])
  '(blink-cursor-mode nil)
+ '(browse-url-browser-function (quote browse-url-default-browser))
  '(comment-column 48)
- '(custom-safe-themes (quote ("8bb1e9a22e9e9d405ca9bdf20b91301eba12c0b9778413ba7600e48d2d3ad1fb" default)))
+ '(custom-safe-themes
+   (quote
+    ("8bb1e9a22e9e9d405ca9bdf20b91301eba12c0b9778413ba7600e48d2d3ad1fb" default)))
  '(fci-rule-color "#383838")
+ '(markdown-command "multimarkdown")
+ '(package-selected-packages
+   (quote
+    (zenburn-theme yaml-mode whole-line-or-region tabbar sr-speedbar shell-pop rainbow-delimiters paredit nginx-mode move-text markdown-preview-mode magit-find-file haskell-mode git-rebase-mode git-gutter git-commit-mode ggtags geben flymake-phpcs flymake-php feature-mode edit-server drupal-mode ac-nrepl ac-js2)))
  '(show-paren-mode t)
  '(tool-bar-mode nil)
  '(vc-annotate-background "#2B2B2B")
- '(vc-annotate-color-map (quote ((20 . "#BC8383") (40 . "#CC9393") (60 . "#DFAF8F") (80 . "#D0BF8F") (100 . "#E0CF9F") (120 . "#F0DFAF") (140 . "#5F7F5F") (160 . "#7F9F7F") (180 . "#8FB28F") (200 . "#9FC59F") (220 . "#AFD8AF") (240 . "#BFEBBF") (260 . "#93E0E3") (280 . "#6CA0A3") (300 . "#7CB8BB") (320 . "#8CD0D3") (340 . "#94BFF3") (360 . "#DC8CC3"))))
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#BC8383")
+     (40 . "#CC9393")
+     (60 . "#DFAF8F")
+     (80 . "#D0BF8F")
+     (100 . "#E0CF9F")
+     (120 . "#F0DFAF")
+     (140 . "#5F7F5F")
+     (160 . "#7F9F7F")
+     (180 . "#8FB28F")
+     (200 . "#9FC59F")
+     (220 . "#AFD8AF")
+     (240 . "#BFEBBF")
+     (260 . "#93E0E3")
+     (280 . "#6CA0A3")
+     (300 . "#7CB8BB")
+     (320 . "#8CD0D3")
+     (340 . "#94BFF3")
+     (360 . "#DC8CC3"))))
  '(vc-annotate-very-old-color "#DC8CC3"))
 
 (custom-set-faces
