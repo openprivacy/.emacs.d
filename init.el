@@ -125,7 +125,7 @@
  '(markdown-command "multimarkdown")
  '(package-selected-packages
    (quote
-    (zenburn-theme yaml-mode whole-line-or-region tabbar sr-speedbar shell-pop rainbow-delimiters paredit nginx-mode move-text markdown-preview-mode magit-find-file haskell-mode git-rebase-mode git-gutter git-commit-mode ggtags geben flymake-phpcs flymake-php feature-mode edit-server drupal-mode ac-nrepl ac-js2)))
+    (zenburn-theme yaml-mode whole-line-or-region tabbar sr-speedbar shell-pop rainbow-delimiters paredit nginx-mode move-text markdown-preview-mode magit-find-file haskell-mode git-gutter ggtags geben flymake-phpcs flymake-php feature-mode edit-server drupal-mode ac-nrepl ac-js2)))
  '(show-paren-mode t)
  '(tool-bar-mode nil)
  '(vc-annotate-background "#2B2B2B")
