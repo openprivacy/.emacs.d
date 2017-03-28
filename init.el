@@ -44,7 +44,9 @@
 (add-hook 'c-mode-common-hook
 	  (lambda ()
 	    (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
-	      (ggtags-mode 1))))
+	      (ggtags-mode 1)
+	      (setq indent-tabs-mode nil
+		    tab-width 2))))
 
 ;; Additional Drupal/flymake support
 (add-hook 'drupal-mode-hook
@@ -86,12 +88,9 @@
 (setq split-height-threshold 20
       scroll-step 2
       inhibit-startup-message t)
-(setq-default require-final-newline t)
-;; (setq-default indent-tabs-mode nil
-;;               sh-basic-offset 2
-;;               sh-indentation 2
-;;               require-final-newline t
-;;               backup-by-copying-when-linked t)
+(setq-default require-final-newline t
+              sh-basic-offset 2
+              sh-indentation 2)
 (setq yow-file "/home/fen/.emacs.d/yow_file_zippy_pinhead_quotes.txt.gz")
 
 ;; Set my location for accurate Solstice/Equinox times
@@ -118,6 +117,8 @@
  '(blink-cursor-mode nil)
  '(browse-url-browser-function (quote browse-url-default-browser))
  '(comment-column 48)
+ '(python-guess-indent nil)
+ '(python-indent 2)
  '(custom-safe-themes
    (quote
     ("8bb1e9a22e9e9d405ca9bdf20b91301eba12c0b9778413ba7600e48d2d3ad1fb" default)))
@@ -125,7 +126,7 @@
  '(markdown-command "multimarkdown")
  '(package-selected-packages
    (quote
-    (zenburn-theme yaml-mode whole-line-or-region tabbar sr-speedbar shell-pop rainbow-delimiters paredit nginx-mode move-text markdown-preview-mode magit-find-file haskell-mode git-gutter ggtags geben flymake-phpcs flymake-php feature-mode edit-server drupal-mode ac-nrepl ac-js2)))
+    (toml toml-mode zenburn-theme yaml-mode whole-line-or-region tabbar sr-speedbar shell-pop rainbow-delimiters paredit nginx-mode move-text markdown-preview-mode magit-find-file haskell-mode git-gutter ggtags geben flymake-phpcs flymake-php feature-mode edit-server drupal-mode ac-nrepl ac-js2)))
  '(show-paren-mode t)
  '(tool-bar-mode nil)
  '(vc-annotate-background "#2B2B2B")
