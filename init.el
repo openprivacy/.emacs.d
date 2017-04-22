@@ -117,8 +117,6 @@
  '(blink-cursor-mode nil)
  '(browse-url-browser-function (quote browse-url-default-browser))
  '(comment-column 48)
- '(python-guess-indent nil)
- '(python-indent 2)
  '(custom-safe-themes
    (quote
     ("8bb1e9a22e9e9d405ca9bdf20b91301eba12c0b9778413ba7600e48d2d3ad1fb" default)))
@@ -127,7 +125,11 @@
  '(package-selected-packages
    (quote
     (toml toml-mode zenburn-theme yaml-mode whole-line-or-region tabbar sr-speedbar shell-pop rainbow-delimiters paredit nginx-mode move-text markdown-preview-mode magit-find-file haskell-mode git-gutter ggtags geben flymake-phpcs flymake-php feature-mode edit-server drupal-mode ac-nrepl ac-js2)))
+ '(perl-indent-level 2)
+ '(python-guess-indent nil)
+ '(python-indent 2)
  '(show-paren-mode t)
+ '(standard-indent 2)
  '(tool-bar-mode nil)
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
