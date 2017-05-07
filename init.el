@@ -43,10 +43,11 @@
 ;; Use ggtags mode in code edit buffers
 (add-hook 'c-mode-common-hook
 	  (lambda ()
-	    (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+	    (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'php-mode)
 	      (ggtags-mode 1)
 	      (setq indent-tabs-mode nil
-		    tab-width 2))))
+		    tab-width 2
+		    c-basic-offset 2))))
 
 ;; Additional Drupal/flymake support
 (add-hook 'drupal-mode-hook
