@@ -125,7 +125,7 @@
  '(markdown-command "multimarkdown")
  '(package-selected-packages
    (quote
-    (toml toml-mode zenburn-theme yaml-mode whole-line-or-region tabbar sr-speedbar shell-pop rainbow-delimiters paredit nginx-mode move-text markdown-preview-mode magit-find-file haskell-mode git-gutter ggtags geben flymake-phpcs flymake-php feature-mode edit-server drupal-mode ac-nrepl ac-js2)))
+    (solidity-mode toml toml-mode zenburn-theme yaml-mode whole-line-or-region tabbar sr-speedbar shell-pop rainbow-delimiters paredit nginx-mode move-text markdown-preview-mode magit-find-file haskell-mode git-gutter ggtags geben flymake-phpcs flymake-php feature-mode edit-server drupal-mode ac-nrepl ac-js2)))
  '(perl-indent-level 2)
  '(python-guess-indent nil)
  '(python-indent 2)
