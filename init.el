@@ -122,13 +122,16 @@
    (quote
     ("8bb1e9a22e9e9d405ca9bdf20b91301eba12c0b9778413ba7600e48d2d3ad1fb" default)))
  '(fci-rule-color "#383838")
+ '(fill-column 90)
  '(markdown-command "multimarkdown")
  '(package-selected-packages
    (quote
-    (solidity-mode toml toml-mode zenburn-theme yaml-mode whole-line-or-region sr-speedbar shell-pop rainbow-delimiters paredit nginx-mode move-text markdown-preview-mode haskell-mode git-gutter ggtags geben flymake-php feature-mode edit-server drupal-mode ac-nrepl ac-js2)))
+    (go-mode solidity-mode toml toml-mode zenburn-theme yaml-mode whole-line-or-region sr-speedbar shell-pop rainbow-delimiters paredit nginx-mode move-text markdown-preview-mode haskell-mode git-gutter ggtags geben flymake-php feature-mode edit-server drupal-mode ac-nrepl ac-js2)))
  '(perl-indent-level 2)
  '(python-guess-indent nil)
  '(python-indent 2)
+ '(python-indent-guess-indent-offset nil)
+ '(python-indent-offset 2)
  '(show-paren-mode t)
  '(standard-indent 2)
  '(tool-bar-mode nil)
