@@ -126,7 +126,7 @@
  '(markdown-command "multimarkdown")
  '(package-selected-packages
    (quote
-    (go-mode solidity-mode toml toml-mode zenburn-theme yaml-mode whole-line-or-region sr-speedbar shell-pop rainbow-delimiters paredit nginx-mode move-text markdown-preview-mode haskell-mode git-gutter ggtags geben flymake-php feature-mode edit-server drupal-mode ac-nrepl ac-js2)))
+    (go-mode solidity-mode zenburn-theme whole-line-or-region markdown-preview-mode haskell-mode ggtags ac-nrepl ac-js2)))
  '(perl-indent-level 2)
  '(python-guess-indent nil)
  '(python-indent 2)
