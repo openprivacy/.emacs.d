@@ -1,4 +1,4 @@
-;; Package management
+; Package management
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
@@ -25,48 +25,42 @@
 ;; My personal keybindings
 (require 'my-keys)                      ; handy editor functions
 
+;; set default tab width to 2
+(setq indent-tabs-mode nil
+      tab-width 2)
+(defvaralias 'c-basic-offset 'tab-width)
+(defvaralias 'cperl-indent-level 'tab-width)
+
 ;; speed up tramp remote file access
 (require 'tramp)
 (setq tramp-default-method "ssh")
 
-;; stuff for drupal-mode
-(require 'auto-complete)
-(require 'auto-complete-config)
-(ac-config-default)
-
 (require 'ggtags)
-;; @see https://github.com/arnested/drupal-mode/issues/48
-(setq drupal-get-function-args t)
 
-(add-to-list 'auto-mode-alist '("\\.\\(js\\|json\\)$" . js2-mode))
+(defun drupal-mode ()
+  "Drupal php-mode."
+  (interactive)
+  (php-mode)
+  (php-enable-drupal-coding-style)
+  (message "Drupal mode activated.")
+  (set 'tab-width 2)
+  (set 'c-basic-offset 2)
+  (set 'indent-tabs-mode nil)
+  (c-set-offset 'case-label '+)
+  (c-set-offset 'arglist-intro '+) ; for FAPI arrays and DBTNG
+  (c-set-offset 'arglist-cont-nonempty 'c-lineup-math) ; for DBTNG fields and values
+  )
+
+;; Drupal
+(add-to-list 'auto-mode-alist '("\\.\\(module\\|test\\|install\\|theme\\)$" . drupal-mode))
+(add-to-list 'auto-mode-alist '("/drupal.*\\.\\(php\\|inc\\)$" . drupal-mode))
+(add-to-list 'auto-mode-alist '("\\.info" . conf-windows-mode))
+
+(add-to-list 'auto-mode-alist '("\\.\\(js\\|json\\|j2\\)$" . js2-mode))
 
 ;; Use ggtags mode in code edit buffers
-(add-hook 'c-mode-common-hook
-	  (lambda ()
-	    (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'php-mode)
-	      (ggtags-mode 1)
-	      (setq indent-tabs-mode nil
-		    tab-width 2
-		    c-basic-offset 2))))
-
-;; Additional Drupal/flymake support
-(add-hook 'drupal-mode-hook
-          '(lambda nil
-             ; "Drupal" coding standards obtained from most recent coder module:
-             ; sudo cp -a /path/to/coder/coder_sniffer/Drupal \
-             ;            $(pear config-get php_dir)/PHP/CodeSniffer/Standards
-             ; (setq-local flymake-phpcs-standard "Drupal")
-             (define-key drupal-mode-map (kbd "C-c <right>")
-               '(lambda nil (interactive)
-                  (flymake-phpcs-load)
-                  (custom-set-variables         ;Put error in mini-buffer
-                   '(help-at-pt-timer-delay 0.9)
-                   '(help-at-pt-display-when-idle '(flymake-overlay)))))
-             (define-key drupal-mode-map (kbd "C-c <left>") 'flymake-mode) ; turn off
-             (define-key drupal-mode-map (kbd "C-c <up>")   'flymake-goto-prev-error)
-             (define-key drupal-mode-map (kbd "C-c <down>") 'flymake-goto-next-error)
-             ; php-search-documentation is also default "\C-c\C-f"
-             (define-key drupal-mode-map (kbd "C-c C-v C-p")    'php-search-documentation)))
+(when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'php-mode)
+  (ggtags-mode 1))
 
 ;; Clojure
 (add-hook 'clojure-mode-hook
