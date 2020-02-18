@@ -26,10 +26,14 @@
 (require 'my-keys)                      ; handy editor functions
 
 ;; set default tab width to 2
-(setq indent-tabs-mode nil
-      tab-width 2)
+(setq-default indent-tabs-mode nil
+              tab-width 2)
 (defvaralias 'c-basic-offset 'tab-width)
 (defvaralias 'cperl-indent-level 'tab-width)
+
+(add-hook 'python-mode-hook
+          '(lambda () 
+             (setq python-indent-offset 2)))
 
 ;; speed up tramp remote file access
 (require 'tramp)
@@ -120,7 +124,7 @@
  '(markdown-command "multimarkdown")
  '(package-selected-packages
    (quote
-    (php-mode python-mode yaml-mode go-mode solidity-mode zenburn-theme whole-line-or-region markdown-preview-mode haskell-mode ggtags ac-nrepl ac-js2)))
+    (magit php-mode python-mode yaml-mode go-mode solidity-mode zenburn-theme whole-line-or-region markdown-preview-mode haskell-mode ggtags ac-nrepl ac-js2)))
  '(perl-indent-level 2)
  '(python-guess-indent nil)
  '(python-indent 2)

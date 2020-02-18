@@ -45,6 +45,9 @@
 (define-key ctl-x-4-map (kbd "t") 'transpose-windows)
 (global-set-key (kbd "M-s M-t") 'stamp)
 
+;; magit
+(global-set-key (kbd "C-x g") 'magit-status)
+
 ;; other non-standard key bindings
 (global-set-key "\er"   'replace-string)             ;was: move-to-window-line
 (global-set-key "\C-xn" 'next-multiframe-window)     ;was: narrow-to-{defun,region,page}
