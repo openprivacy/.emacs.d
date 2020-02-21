@@ -27,13 +27,16 @@
 
 ;; set default tab width to 2
 (setq-default indent-tabs-mode nil
-              tab-width 2)
+              tab-width 2
+              require-final-newline t)
 (defvaralias 'c-basic-offset 'tab-width)
 (defvaralias 'cperl-indent-level 'tab-width)
+(defvaralias 'sh-basic-offset 'tab-width)
 
 (add-hook 'python-mode-hook
           '(lambda () 
-             (setq python-indent-offset 2)))
+             (setq python-indent-offset 4
+                   tab-width 4)))
 
 ;; speed up tramp remote file access
 (require 'tramp)
@@ -87,9 +90,6 @@
 (setq split-height-threshold 20
       scroll-step 2
       inhibit-startup-message t)
-(setq-default require-final-newline t
-              sh-basic-offset 2
-              sh-indentation 2)
 (setq yow-file "/home/fen/.emacs.d/yow_file_zippy_pinhead_quotes.txt.gz")
 
 ;; Set my location for accurate Solstice/Equinox times
@@ -124,12 +124,12 @@
  '(markdown-command "multimarkdown")
  '(package-selected-packages
    (quote
-    (magit php-mode python-mode yaml-mode go-mode solidity-mode zenburn-theme whole-line-or-region markdown-preview-mode haskell-mode ggtags ac-nrepl ac-js2)))
+    (elpy magit php-mode python-mode yaml-mode go-mode solidity-mode zenburn-theme whole-line-or-region markdown-preview-mode haskell-mode ggtags ac-nrepl ac-js2)))
  '(perl-indent-level 2)
  '(python-guess-indent nil)
  '(python-indent 2)
  '(python-indent-guess-indent-offset nil)
- '(python-indent-offset 2)
+ '(python-indent-offset 4)
  '(show-paren-mode t)
  '(standard-indent 2)
  '(tool-bar-mode nil)
@@ -162,3 +162,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 98 :width normal)))))
+
+(elpy-enable)
