@@ -36,7 +36,10 @@
 (add-hook 'python-mode-hook
           '(lambda () 
              (setq python-indent-offset 4
-                   tab-width 4)))
+                   tab-width 4)
+             (linum-mode 1)))
+
+(elpy-enable)
 
 ;; speed up tramp remote file access
 (require 'tramp)
@@ -50,9 +53,10 @@
   (php-mode)
   (php-enable-drupal-coding-style)
   (message "Drupal mode activated.")
-  (set 'tab-width 2)
-  (set 'c-basic-offset 2)
-  (set 'indent-tabs-mode nil)
+  (set 'tab-width 2
+       'c-basic-offset 2
+       'indent-tabs-mode nil)
+  (linum-mode 1)
   (c-set-offset 'case-label '+)
   (c-set-offset 'arglist-intro '+) ; for FAPI arrays and DBTNG
   (c-set-offset 'arglist-cont-nonempty 'c-lineup-math) ; for DBTNG fields and values
@@ -61,22 +65,24 @@
 ;; Drupal
 (add-to-list 'auto-mode-alist '("\\.\\(module\\|test\\|install\\|theme\\)$" . drupal-mode))
 (add-to-list 'auto-mode-alist '("/drupal.*\\.\\(php\\|inc\\)$" . drupal-mode))
+
 (add-to-list 'auto-mode-alist '("\\.info" . conf-windows-mode))
-
 (add-to-list 'auto-mode-alist '("\\.\\(js\\|json\\|j2\\)$" . js2-mode))
-
-;; Use ggtags mode in code edit buffers
-(when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'php-mode)
-  (ggtags-mode 1))
 
 ;; Clojure
 (add-hook 'clojure-mode-hook
           '(lambda nil
              (require 'my-clojure)
+             (linum-mode 1)
              (message "Use 'M-x cider-jack-in' to start nREPL")))
 
 ;; NXML-mode for xdi and xsd files
 (add-to-list 'auto-mode-alist '("\\.\\(xdi\\|xsd\\)$" . nxml-mode))
+
+;; Use ggtags mode in code edit buffers
+(when (derived-mode-p 'c-mode 'c++-mode  'clojure-mode 'lisp-mode
+                      'java-mode 'php-mode 'python-mode 'nxml-mode 'js2-mode)
+  (ggtags-mode 1))
 
 ;; Tell emacs I know what I'm doing
 (tool-bar-mode 0)
@@ -163,4 +169,3 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 98 :width normal)))))
 
-(elpy-enable)
