@@ -1,8 +1,6 @@
 ; Package management
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(package-initialize)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 
 ;; Set path to .emacs.d
 (setq dotfiles-dir (file-name-directory
@@ -45,29 +43,11 @@
 (require 'tramp)
 (setq tramp-default-method "ssh")
 
-(require 'ggtags)
-
-(defun drupal-mode ()
-  "Drupal php-mode."
-  (interactive)
-  (php-mode)
-  (php-enable-drupal-coding-style)
-  (message "Drupal mode activated.")
-  (set 'tab-width 2
-       'c-basic-offset 2
-       'indent-tabs-mode nil)
-  (linum-mode 1)
-  (c-set-offset 'case-label '+)
-  (c-set-offset 'arglist-intro '+) ; for FAPI arrays and DBTNG
-  (c-set-offset 'arglist-cont-nonempty 'c-lineup-math) ; for DBTNG fields and values
-  )
-
-;; Drupal
-(add-to-list 'auto-mode-alist '("\\.\\(module\\|test\\|install\\|theme\\)$" . drupal-mode))
-(add-to-list 'auto-mode-alist '("/drupal.*\\.\\(php\\|inc\\)$" . drupal-mode))
+;;;; (require 'ggtags)
 
 (add-to-list 'auto-mode-alist '("\\.info" . conf-windows-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(js\\|json\\|j2\\)$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\.j2$" . markdown-mode))
 
 ;; Clojure
 (add-hook 'clojure-mode-hook
@@ -120,20 +100,16 @@
  '(ansi-color-names-vector
    ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#ad7fa8" "#8cc4ff" "#eeeeec"])
  '(blink-cursor-mode nil)
- '(browse-url-browser-function (quote browse-url-default-browser))
+ '(browse-url-browser-function 'browse-url-default-browser)
  '(comment-column 48)
  '(custom-safe-themes
-   (quote
-    ("8bb1e9a22e9e9d405ca9bdf20b91301eba12c0b9778413ba7600e48d2d3ad1fb" default)))
+   '("8bb1e9a22e9e9d405ca9bdf20b91301eba12c0b9778413ba7600e48d2d3ad1fb" default))
  '(fci-rule-color "#383838")
  '(fill-column 90)
  '(markdown-command "multimarkdown")
  '(package-selected-packages
-   (quote
-    (elpy magit php-mode python-mode yaml-mode go-mode solidity-mode zenburn-theme whole-line-or-region markdown-preview-mode haskell-mode ggtags ac-nrepl ac-js2)))
+   '(drupal-mode markdown-mode tramp elpy magit php-mode python-mode yaml-mode go-mode solidity-mode zenburn-theme whole-line-or-region markdown-preview-mode haskell-mode ggtags ac-nrepl ac-js2))
  '(perl-indent-level 2)
- '(python-guess-indent nil)
- '(python-indent 2)
  '(python-indent-guess-indent-offset nil)
  '(python-indent-offset 4)
  '(show-paren-mode t)
@@ -141,8 +117,7 @@
  '(tool-bar-mode nil)
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
-   (quote
-    ((20 . "#BC8383")
+   '((20 . "#BC8383")
      (40 . "#CC9393")
      (60 . "#DFAF8F")
      (80 . "#D0BF8F")
@@ -159,7 +134,7 @@
      (300 . "#7CB8BB")
      (320 . "#8CD0D3")
      (340 . "#94BFF3")
-     (360 . "#DC8CC3"))))
+     (360 . "#DC8CC3")))
  '(vc-annotate-very-old-color "#DC8CC3"))
 
 (custom-set-faces
