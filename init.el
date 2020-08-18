@@ -108,7 +108,7 @@
  '(fill-column 90)
  '(markdown-command "multimarkdown")
  '(package-selected-packages
-   '(drupal-mode markdown-mode tramp elpy magit php-mode python-mode yaml-mode go-mode solidity-mode zenburn-theme whole-line-or-region markdown-preview-mode haskell-mode ggtags ac-nrepl ac-js2))
+   '(ac-cider clojure-mode drupal-mode markdown-mode elpy magit php-mode yaml-mode go-mode solidity-mode zenburn-theme whole-line-or-region markdown-preview-mode ggtags ac-nrepl ac-js2))
  '(perl-indent-level 2)
  '(python-indent-guess-indent-offset nil)
  '(python-indent-offset 4)
